@@ -1,0 +1,117 @@
+body {
+	font-family: "Montserrat", sans-serif;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	background-color: #2F4F4F;
+	color: #fff;
+	margin: 0;
+}
+
+.container {
+  width: 300px;
+  margin: 50px 0;
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+}
+
+.seat {
+  display: flex;
+  background-color: #E0FFFF;
+  height: 45px;
+  width: 50px;
+  margin: 10px;
+  overflow: hidden;
+  flex-wrap: wrap;
+  flex-direction: row;
+  
+}
+
+.selected {
+  background-color: red;
+}
+
+.add {
+  margin-top: 10px;
+  height: 40px;
+}
+
+.remove {
+  margin-top: 5px;
+  height: 40px;
+}
+
+.row {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin-top: 70px;
+  margin-left: 70px;
+  height: 400px;
+  width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.screen {
+  background: #E0FFFF;
+  height: 21px;
+  width: 650px;
+  border-top-left-radius: 110px;  /* 100px of height + 10px of border */
+  border-top-right-radius: 110px;
+  margin: 100px 0;
+  transform: rotateX(-45deg);
+  box-shadow: 0 3px 10px rgba(255,255,255,0.7);
+  border-top-radius: 10px;
+}
+
+p {
+  background: white;
+  width: 100px;
+  height: 130px;
+  text-align: center;
+  padding: 15px;
+  border: 3px solid #E0FFFF;
+  border-radius: 10px;
+  color: black;
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.occupied {
+  background-color: #808080;
+}
+
+.seat.selected.occupied {
+  background-color: #808080;
+}
+
+.divBtn {
+  bottom: 300px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.bookBtn {
+  background: white;
+  text-align: center;
+  padding: 15px;
+  border: 3px solid #E0FFFF;
+  border-radius: 10px;
+  color: black;
+}
