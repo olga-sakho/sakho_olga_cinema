@@ -2,8 +2,8 @@
 $( document ).ready(function() {
     console.log( "ready!" );
 
-    $.getJSON("../js/seat.json", function(seats) {
-    console.log(seats);
+$.getJSON("../js/seat.json", function(seats) {
+console.log(seats);
 
 	$.each(seats, function(index,value)  {
 	 	var seatDiv = document.createElement('div')
@@ -21,15 +21,13 @@ $( document ).ready(function() {
 				    		$(this).parents('.seat').removeClass('selected')
 				    	
 	    				})
-	    				/*var bookedSeat = []
-	    				console.log($('.selected'))
-	    				bookedSeat.push(($('.selected')))*/
 	    			
 	    }
 	    		else{
 	    			$(seatDiv).addClass('occupied')
 	    		}
 	    		
+	})
 	
 		var btnDiv = document.createElement('div')
 		var bookButton = document.createElement('button')
@@ -39,19 +37,17 @@ $( document ).ready(function() {
 		$(bookButton).appendTo(btnDiv)
 		$(bookButton).text('Забронировать')
 
-		$('.bookBtn').on('click', function(){
-  		$('.selected').addClass('occupied')	
-				console.log($('.occupied'))
-				
-  		
-		})
 		
+			$('.bookBtn').on('click', function(){
+	  		$('.selected').addClass('occupied')	
+					console.log($('.occupied'))
+			})
+	
+				
 
-	})
-
- 
 
 })
+
 })
    
   /*for (var i = 0; i<seats.length; i++ ){
