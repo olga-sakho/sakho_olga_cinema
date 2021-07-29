@@ -9,23 +9,23 @@ var mongo = require('mongodb').MongoClient;
 
 app.set('view engine', 'pug');
 
-var seatsArr = [];
-var seatPerRow = 10;
-var rows = 7;
+/*var seatsArr = [];
+var seatPerRow = 7;
+var rows = 6;
 var currentRow = 1;
 
 
-/*while (rows-1) {
+while (rows-1) {
   rows--
 
   var seats = seatPerRow
   var currentSeat = 1
-  var busy = Boolean(Math.round(Math.random()));
+  var busy = Boolean;
   while(currentSeat <= seats){
     let seat = {
       number: currentSeat,
       row: rows,
-      busy: busy
+      busy: true
     }
     currentSeat++
     seatsArr.push(seat)

@@ -1,223 +1,9 @@
-$.getJSON('../public/js/seat', function(data) {
-    console.log(data);
-var seats = [
-	{
-		"number":7,
-		"row":1,
-		"busy":true
-	},
-	{
-		"number":6,
-		"row":1,
-		"busy":true
-	},
-	{
-		"number":5,
-		"row":1,
-		"busy":true
-	},
-	{
-		"number":4,
-		"row":1,
-		"busy":true
-	},
-	{
-		"number":3,
-		"row":1,
-		"busy":true
-	},
-	{
-		"number":2,
-		"row":1,
-		"busy":true
-	},
-	{
-		"number":1,
-		"row":1,
-		"busy":true
-	},
-	{
-		"number":7,
-		"row":2,
-		"busy":true
-	},
-	{
-		"number":6,
-		"row":2,
-		"busy":true
-	},
-	{
-		"number":5,
-		"row":2,
-		"busy":true
-	},
-	{
-		"number":4,
-		"row":2,
-		"busy":true
-	},
-	{
-		"number":3,
-		"row":2,
-		"busy":true
-	},
-	{
-		"number":2,
-		"row":2,
-		"busy":true
-	},
-	{
-		"number":1,
-		"row":2,
-		"busy":true
-	},
-	{
-		"number":7,
-		"row":3,
-		"busy":false
-	},
-	{
-		"number":6,
-		"row":3,
-		"busy":false
-	},
-	{
-		"number":5,
-		"row":3,
-		"busy":false
-	},
-	{
-		"number":4,
-		"row":3,
-		"busy":false
-	},
-	{
-		"number":3,
-		"row":3,
-		"busy":false
-	},
-	{
-		"number":2,
-		"row":3,
-		"busy":false
-	},
-	{
-		"number":1,
-		"row":3,
-		"busy":false
-	},
-	{
-		"number":7,
-		"row":4,
-		"busy":true
-	},
-	{
-		"number":6,
-		"row":4,
-		"busy":true
-	},
-	{
-		"number":5,
-		"row":4,
-		"busy":true
-	},
-	{
-		"number":4,
-		"row":4,
-		"busy":true
-	},
-	{
-		"number":3,
-		"row":4,
-		"busy":true
-	},
-	{
-		"number":2,
-		"row":4,
-		"busy":true
-	},
-	{
-		"number":1,
-		"row":4,
-		"busy":true
-	},
-	{
-		"number":7,
-		"row":5,
-		"busy":true
-	},
-	{
-		"number":6,
-		"row":5,
-		"busy":true
-	},
-	{
-		"number":5,
-		"row":5,
-		"busy":true
-	},
-	{
-		"number":4,
-		"row":5,
-		"busy":true
-	},
-	{
-		"number":3,
-		"row":5,
-		"busy":true
-	},
-	{
-		"number":2,
-		"row":5,
-		"busy":false
-	},
-	{
-		"number":1,
-		"row":5,
-		"busy":true
-	},
-	{
-		"number":7,
-		"row":6,
-		"busy":true
-	},
-	{
-		"number":6,
-		"row":6,
-		"busy":true
-	},
-	{
-		"number":5,
-		"row":6,
-		"busy":true
-	},
-	{
-		"number":4,
-		"row":6,
-		"busy":true
-	},
-	{
-		"number":3,
-		"row":6,
-		"busy":true
-	},
-	{
-		"number":2,
-		"row":6,
-		"busy":true
-	},
-	{
-		"number":1,
-		"row":6,
-		"busy":true
-	}
-]
-
-
-
 
 $( document ).ready(function() {
     console.log( "ready!" );
+
+    $.getJSON("../js/seat.json", function(seats) {
+    console.log(seats);
 
 	$.each(seats, function(index,value)  {
 	 	var seatDiv = document.createElement('div')
@@ -233,6 +19,7 @@ $( document ).ready(function() {
 	    				$('.remove').on('click', function(){
 				    		$(this).parents('.seat').removeClass('occupied')
 				    		$(this).parents('.seat').removeClass('selected')
+				    	
 	    				})
 	    				/*var bookedSeat = []
 	    				console.log($('.selected'))
@@ -254,8 +41,9 @@ $( document ).ready(function() {
 
 		$('.bookBtn').on('click', function(){
   		$('.selected').addClass('occupied')	
-  		var seatBook = $('.seat.selected.occupied')
-				console.log(seatBook)
+				console.log($('.occupied'))
+				
+  		
 		})
 		
 
