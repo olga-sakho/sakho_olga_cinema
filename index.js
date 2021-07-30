@@ -41,13 +41,14 @@ fs.writeFile('seat.json', JSON.stringify(seatsArr.reverse()), (err) => {
   }
 });*/
 
-mongoose.connect('mongodb://localhost:27017/seat', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost:27017/seats', {useNewUrlParser: true, useUnifiedTopology: true});
 
 
 
 app.get('/', function (req, res) {
       res.render('cinema');
-  });
+});
+
 
 
 app.use(express.static('public'));

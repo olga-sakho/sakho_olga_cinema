@@ -7,20 +7,13 @@ console.log(seats);
 
 	$.each(seats, function(index,value)  {
 	 	var seatDiv = document.createElement('div')
-	 	$(seatDiv).addClass('seat').html('<p> number: ' + value['number'] + '<br> ' + 'row: '  + value['row'] + '<br> ' + '<button class = "add">' + 'Выбрать' + '</button>' + '<br> ' + '<button class = "remove">' + 'Отменить' + '</button>' +'</p>')
+	 	$(seatDiv).addClass('seat').html('<p> number: ' + value['number'] + '<br> ' + 'row: '  + value['row'] + '<br> ' +'</p>')
 	  	$(seatDiv).appendTo($('.row'))
 	  	if(value['busy'] === true){
 						$(seatDiv).on('click', function(){
 		    			$(this).find('p').toggle();
+		    			console.log(index)
 		    		})
-		    			$('.add').on('click', function(){
-				    		$(this).parents('.seat').addClass('selected')	
-	    				})
-	    				$('.remove').on('click', function(){
-				    		$(this).parents('.seat').removeClass('occupied')
-				    		$(this).parents('.seat').removeClass('selected')
-				    	
-	    				})
 	    			
 	    }
 	    		else{
@@ -28,22 +21,44 @@ console.log(seats);
 	    		}
 	    		
 	})
+		var addButton = document.createElement('button')
+			$(addButton).addClass('add')
+			$(addButton).appendTo('p')
+			$('.add').text('Выбрать')
+
+			var removeButton = document.createElement('button')
+				$(removeButton).addClass('remove')
+				$(removeButton).appendTo('p')
+				$('.remove').text('Отменить')
+
+					$('.add').on('click', function(){
+				    $(this).parents('.seat').addClass('selected')	
+	    			})
+	    				$('.remove').on('click', function(){
+				    		$(this).parents('.seat').removeClass('occupied')
+				    		$(this).parents('.seat').removeClass('selected')
+				    	})
+
+
 	
 		var btnDiv = document.createElement('div')
 		var bookButton = document.createElement('button')
-		$(btnDiv).addClass('divBtn')
-		$(bookButton).addClass('bookBtn')
-		$(btnDiv).appendTo('body')
-		$(bookButton).appendTo(btnDiv)
-		$(bookButton).text('Забронировать')
+			$(btnDiv).addClass('divBtn')
+			$(bookButton).addClass('bookBtn')
+			$(btnDiv).appendTo('body')
+			$(bookButton).appendTo(btnDiv)
+			$(bookButton).text('Забронировать')
 
 		
-			$('.bookBtn').on('click', function(){
-	  		$('.selected').addClass('occupied')	
-					console.log($('.occupied'))
-			})
-	
-				
+				$('.bookBtn').on('click', function(){
+			  		$('.selected').addClass('occupied')
+				})
+				/*axios.post('/seats', {seats})
+					.then((response) => {
+					  console.log(response);
+					}, (error) => {
+					  console.log(error);
+					});*/
 
 
 })
