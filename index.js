@@ -9,6 +9,10 @@ var mongo = require('mongodb').MongoClient;
 
 app.set('view engine', 'pug');
 
+app.use(express.json()) 
+app.use(express.urlencoded({ extended: true })) 
+
+
 /*var seatsArr = [];
 var seatPerRow = 7;
 var rows = 6;
@@ -43,11 +47,14 @@ fs.writeFile('seat.json', JSON.stringify(seatsArr.reverse()), (err) => {
 
 mongoose.connect('mongodb://localhost:27017/seats', {useNewUrlParser: true, useUnifiedTopology: true});
 
-
-
 app.get('/', function (req, res) {
       res.render('cinema');
 });
+
+app.get('api/seats', function (req, res) {
+  console.log(req.body)
+  res.json(req.body)
+})
 
 
 
