@@ -1,10 +1,8 @@
 $( document ).ready(function() {
 
-    console.log( "ready!" );
 
 $.getJSON("../js/seat.json", function(seats) {
 console.log(seats);
-
 
 		var btnDiv = document.createElement('div')
 		var bookButton = document.createElement('button')
@@ -47,11 +45,19 @@ var removeArr = []
 				$('.seat.selected').addClass('occupied')
 				console.log(orderSeat)
 
-	
+		
 
-
+		axios.post('/list', orderSeat)
+		  .then(function (response) {
+		    console.log(response);
+		  })
+		  .catch(function (error) {
+		    console.log(error);
+		  });
 	
 	})
+
+
 
 })
 

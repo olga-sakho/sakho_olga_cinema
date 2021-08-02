@@ -51,9 +51,24 @@ app.get('/', function (req, res) {
       res.render('cinema');
 });
 
-app.get('api/seats', function (req, res) {
-  console.log(req.body)
-  res.json(req.body)
+app.get('/list', function (req, res){
+  res.json({msg:'hello'})
+})
+
+app.post('/list', function (req, res) {
+  res.json({data: req.body})
+  const fileObject = fs.readFileSync('C:/Users/olga/myRepo/JS_curses/cinema/public/js/seat.json', 'utf8');
+
+  console.log(JSON.stringify(data));
+
+try {
+  fs.writeFileSync('C:/Users/olga/myRepo/JS_curses/cinema/public/js/seat.json', JSON.stringify(data, value['busy']=== false), 'utf8');
+  console.log("The file was saved!");
+}
+catch(err) {
+  console.log("An error has ocurred when saving the file.");
+}
+  res.json({data: req.body})
 })
 
 
