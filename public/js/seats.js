@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 
 
-$.getJSON("../js/seat.json", function(seats) {
+$.getJSON("../js/orderSeat.json", function(seats) {
 console.log(seats);
 
 		var btnDiv = document.createElement('div')
@@ -43,14 +43,26 @@ var removeArr = []
 	$('.bookBtn').on('click', function(){
 		 var orderSeat = chooseSeat.filter(x => !removeArr.includes(x));
 				$('.seat.selected').addClass('occupied')
-				console.log(orderSeat)
 			$.each(orderSeat, function(index,value)  {
 				$.each(seats, function(index1,value1) {
     				if(value['number'] == value1['number'] && value['row'] == value1['row']){
     						return value1['busy'] = false;
     				}
+
     			})
+    				alert('Вы забронировали: ' + ' ' + 'Ряд: ' + value['row'] + ' ' + 'Место: ' + value['number'])
   			});
+
+  	
+
+
+  			axios.post('/list', seats)
+			  .then(function (response) {
+			    console.log(response);
+			  })
+			  .catch(function (error) {
+			    console.log(error);
+			  });
 				console.log(seats)
 			
 	
@@ -66,15 +78,7 @@ var removeArr = []
 		  .then(function () {
 		  });
 
-		
 
-		axios.post('/list', orderSeat)
-		  .then(function (response) {
-		    console.log(response);
-		  })
-		  .catch(function (error) {
-		    console.log(error);
-		  });
 	
 	})
 

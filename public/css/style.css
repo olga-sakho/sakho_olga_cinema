@@ -103,10 +103,20 @@ p {
 
 .occupied {
   background-color: #808080;
+  
 }
 
 .seat.selected.occupied {
   background-color: #808080;
+
+}
+
+.seat.occupied:hover p {
+  display: none;
+}
+
+.seat.occupied:hover {
+   background-color: #808080;
 }
 
 .divBtn {
