@@ -52,23 +52,30 @@ app.get('/', function (req, res) {
 });
 
 app.get('/list', function (req, res){
-  res.json({msg:'hello'})
-})
+  res.json({data: req.body})
+  /*const fileObject1 = fs.readFileSync('C:/Users/olga/myRepo/JS_curses/cinema/public/js/seat.json', 'utf8');
+  try {
+    fs.writeFileSync('C:/Users/olga/myRepo/JS_curses/cinema/public/js/seat.json', JSON.stringify({data: req.body} , 'utf8'));
+    console.log("successfully write");
+  }
+  catch(err) {
+    console.log(err);
+  }*/
+ 
+});
+
 
 app.post('/list', function (req, res) {
-  res.json({data: req.body})
-  const fileObject = fs.readFileSync('C:/Users/olga/myRepo/JS_curses/cinema/public/js/seat.json', 'utf8');
+  res.json(req.body)
+  const fileObject = fs.readFileSync('C:/Users/olga/myRepo/JS_curses/cinema/public/js/orderSeat.json', 'utf8');
 
-  console.log(JSON.stringify(data));
-
-try {
-  fs.writeFileSync('C:/Users/olga/myRepo/JS_curses/cinema/public/js/seat.json', JSON.stringify(data, value['busy']=== false), 'utf8');
-  console.log("The file was saved!");
-}
-catch(err) {
-  console.log("An error has ocurred when saving the file.");
-}
-  res.json({data: req.body})
+  try {
+    fs.writeFileSync('C:/Users/olga/myRepo/JS_curses/cinema/public/js/orderSeat.json', JSON.stringify(req.body, 'utf8'));
+    console.log("The file was saved!");
+  }
+  catch(err) {
+    console.log(err);
+  }
 })
 
 

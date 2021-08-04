@@ -17,7 +17,7 @@ var removeArr = []
 	 	var seatDiv = document.createElement('div')
 	 	$(seatDiv).addClass('seat').html('<p> number: ' + value['number'] + '<br> ' + 'row: '  + value['row'] + '<br> ' +'</p>')
 	  	$(seatDiv).appendTo($('.row'))
-	  		if(value['busy'] === true){
+	  		if(value['busy'] == true){
 						$(seatDiv).on('click', function(){
 			    			$(this).find('p').toggle();
 			    			$(this).addClass('selected')
@@ -44,6 +44,27 @@ var removeArr = []
 		 var orderSeat = chooseSeat.filter(x => !removeArr.includes(x));
 				$('.seat.selected').addClass('occupied')
 				console.log(orderSeat)
+			$.each(orderSeat, function(index,value)  {
+				$.each(seats, function(index1,value1) {
+    				if(value['number'] == value1['number'] && value['row'] == value1['row']){
+    						return value1['busy'] = false;
+    				}
+    			})
+  			});
+				console.log(seats)
+			
+	
+
+		
+		axios.get('/list', orderSeat)
+		  .then(function (response) {
+		    console.log(response);
+		  })
+		  .catch(function (error) {
+		    console.log(error);
+		  })
+		  .then(function () {
+		  });
 
 		
 
